@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     deploy:
-    docker:
+      docker:
       - image: circleci/node:10.16.0
     steps:
       - checkout
@@ -10,12 +10,12 @@ jobs:
           name: Deploy Master it pto Heroku
           command: |
             git push https://heroku:57a9a39a-d834-4675-8d2c-4e1a519c5783@git.heroku.com/deliver-it-well-ops-200.git main
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build
-      - deploy:
+    workflows:
+      version: 2
+      build-deploy:
+        jobs:
+         - build
+         - deploy:
           requires:
             - build
           filters:
