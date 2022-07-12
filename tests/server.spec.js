@@ -38,12 +38,12 @@ describe('server/app.js', function() {
     });
   });
 
-  it('looking forward to going tomorrow', (done) => {
+  it('Page says looking forward to going tomorrow', (done) => {
     chai.request(server)
       .get('/')
       .end((err, res) => {
         expect(err).not.exist;
-        expect(JSON.stringify(res.text)).to.contain('Hello World');
+        expect(JSON.stringify(res.text)).to.contain('looking forward to going tomorrow');
         done();
       });
     });
